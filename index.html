@@ -1,96 +1,127 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	<link rel="stylesheet" type="text/css" href="./projectcss.css">
+	<link rel="stylesheet" type="text/css" href="./gallerycss.css">
+	<title>Welcome!</title>
 
-  <title>GridSpace</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-
-  <!-- Bootstrap CSS CDN -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- Thanks to http://glyphicons.com/ for providing the icons for free to bootstrap! -->
-
-  <!-- jQuery CDN -->
-  <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-
-
-
-  <!-- Our Custom CSS -->
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="wrapper">
-      <!-- Sidebar Holder -->
-      <nav class="pre-scrollable" id="sidebar">
-          <div id="dismiss">
-              <i class="glyphicon glyphicon-arrow-left"></i>
-          </div>
-          <div class="sidebar-header">
-              <h3>Index</h3>
-          </div>
-          <ul class="list-unstyled components">
-            <li>
-              <a href="#">Journal</a>
-              <ul class="list-unstyled" id="pageSubmenu">
 
-              </ul>
-            </li>
-          </ul>
-          <ul>
-              <li class="index-button">
-                <button type="button" id="add-button" class="btn btn-info add-button">
-                  <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
-                </button>
-              </li>
-            </ul>
-      </nav>
+		<section id="home">
+			<div class="banner"></div>
+			<div class="container">
+				<div class="line">Huini</div>
+				<img class="bow" src="./bow.png"/>
+				<div class="thing"></div>
+				<div class="line right">Chen</div>
+			</div>
+			
+			<div class="card">
+				<div class="structure">
+				<!-- 	<h1 id="title">Creating <span class="change">web apps</span></h1> -->
+					<!-- <img src="./me.png" /> -->
+					<div class="centerCircle">
+						<p>"The flower that blooms in adversity 
+					is the most rare and beautiful of them all"</p>
+						<span>-Mulan</span>
+				</div>
+				</div>
+				<div class="left-box">
+					
+					<img src="./me.png" class="hidden" />
+					<div class="circle aboutme"><h1>About Me</h1>
+						<p class="hidden info">My name is Huini Chen. <br>I’m a creator of web applications, <br> hairstyles, drawings, layouts, and much more. I’m enthusiastic about design and technology, which is why I’m currently focused on exploring the wonderful world of front end web development. The goal is to create effective solutions that look pretty.  Outside of creating, I enjoy strolling through trails, playing video games and eating tasty food (especially bread).</p>
+					</div>
+					<div class="circle empty"></div>
+					<div class="circle leftupsmall"></div>
+				</div>
 
-      <!-- Page Content Holder -->
-      <div id="content">
-          <nav class="navbar navbar-fixed-top">
-                  <div class="navbar-header">
-                      <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-                          <i class="glyphicon glyphicon-align-left"></i>
-                          <span></span>
-                      </button>
-                  </div>
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#"><img src="./logo.png"></a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right" id="sign-in">
-                  <li><a href="login.html">Sign in</a></li>
-                </ul>
-            </div>
-          </nav>
+				<div class="right-box">
+					
+					<div class="circleleft projects"><h1>Projects</h1></div>
+					<div class="circleleft gallery"><h1>Gallery</h1></div>
+				</div>
+				<div class="footer"> 
+					<div class="circle contactme">
+						<h1>Contact Me</h1>
+					</div>
+				</div>
 
-          <!-- displays the added todo-list -->
-          <div style="height: 100px; width: 640px; margin: 0 auto;"></div>
-          <div id="display-rect"></div>
 
-          <div class="editable-content">
-             <!--Editor -->
-          </div>
-      </div>
+			</div>
 
-      <div class="dropup">
-        <button type="button" id="newPage" class="btn btn-info new-page dropdown-toggle" data-toggle="dropdown">
-          <i class="glyphicon glyphicon-plus"></i>
-        </button>
-        <ul id="my-drop-up" class="dropdown-menu dropdown-menu-right" aria-labelledby="newPage">
-          <li id="list-btn" role="presentation"><a role="menuitem" tabindex="-1" href="#">List</a></li>
-        </ul>
-      </div>
 
-  </div>
 
-  <div class="overlay"></div>
+		</section>
+		<section id="projects" class="hidden">
+				<div class="header">
+					<h1>Projects</h1>
+						
+					<div class="circle bubble"></div>
+				</div>
+			<div class="mainbox" >
+				<div class="gridwrap">
 
-    <!-- jQuery Custom Scroller CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="./todo.js"></script>
+						<div class="icon hope" alt="Hope.chatbot logo"> </div>
+						<h1>Hope.Chatbot
+							<p>A chatbot that helps women find available shelters near them</p>
+						</h1>						
+						<div class="icon alph" alt="Alphenetics logo"> </div>
+						<h1>
+							Alphenetics
+							<p>Web app that allows you to create custom pronunciations for names</p>
+						</h1>
+
+						<div class="icon grid" alt="GridSpace logo"> </div>
+						<h1>
+							GridSpace
+							<p>Component based journal</p>
+						</h1>
+				</div>
+
+				<div class="sidebox1">
+						<div class ="circleleft"><h1 class="close">&times;</h1></div>
+
+				</div>
+
+			</div>
+		</section>
+		<section id="gallery" class="hidden">
+			<div class="wrapper">
+				<div class="header">
+					<h1>Gallery</h1>
+					<div class="circle bubble"></div>
+			 	</div>
+				<div class="main">
+					<nav>
+						<p class="active">Hair</p>
+						<p>Sketches</p>
+						<p>Misc</p>
+					</nav>
+
+					<div class="circlecontainer">
+						<div class="smallcircle hiddenL"></div>
+						<div id="cat1" onclick="flip(-1,'left')" class="smallcircle left"></div>
+						<div id="cat2" class="smallcircle mid"></div> 
+						<div id="cat3"onclick="flip(1,'right')" class="smallcircle right"></div>
+						<div class="smallcircle hiddenR"></div>
+
+					</div>
+					<div class="circleExit"><h1 class="closeG">&times;</h1></div>
+
+
+				</div>
+			</div>
+		</section>
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="./meter.js" ></script>
+		<script src="./project.js"></script>
+		<script src="./gallery.js"></script>
+
+
 </body>
 </html>
