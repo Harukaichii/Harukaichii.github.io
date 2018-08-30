@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css?family=Baumans');
+
+#projects{
+	position:fixed;
+	top:0
+	left:0;
+	height:100%;
+	width:100%;
+ overflow-x: hidden;
+}
+
+h1 p{
+	font-weight: normal;
+	font-size:0.5em;
+	font-family:Arial;
+}
+
+
+
+.wrapper{
+	display:flex;
+	height:100%;
+}
+
+.wrapper > *{
+/*	border: 6px solid black;*/
+	position:relative;
+}
+
+
+.header .circle{
+  --circle-color:pink;
+  --bottom: 0px;
+  --left: -10vh;
+  --height: 30vh;
+  --width: 30vh;
+  height:var(--height);
+  width:var(--width);
+  border-radius:100%/100%;
+  position:absolute;
+  bottom: var(--bottom);
+  left: var(--left);
+  background-color:var(--circle-color); 
+}
+
+
+.sidebox1 .circleleft{
+  --circle-color:#a954ff;
+  --top: -10vh;
+  --right: -10vh;
+  --height: 20vh;
+  --width: 20vh;
+  height:var(--height);
+  width:var(--width);
+  top: var(--top);
+  right: var(--right);
+  background-color:var(--circle-color);
+  border-radius:100%;
+  position:absolute;
+  z-index:1;
+  animation:none;
+}
+
+/*--------------------------------------*/
+
+.header .bubble{
+	--circle-color:#a954ff;
+	--bottom:none;
+	top:-15vh;
+	height:40vh;
+	width:40vh;
+	z-index:1;
+	position:fixed;
+
+}
+
+
+.header h1{
+	font-size:15vh;
+	letter-spacing:1vh;
+	margin-left:10vh;
+	z-index:2;
+	transform:rotate(90deg);
+	transform-origin:top left 0;
+	float:left;
+	position:fixed;
+	left:10vh;
+}
+
+.mainbox{
+	flex-basis:100%;
+	align-items:stretch;
+	display:flex;
+	margin-left:25vh;
+	overflow:hidden;
+}
+
+.gridwrap{
+	display: grid;
+	grid-template-columns:2fr 3fr;
+	grid-template-rows:1fr 1fr 1fr;
+/*	border:6px solid black;*/
+	border-radius:100%/100%;
+	width:100%;
+	max-width:80vw;
+
+
+}
+
+.gridwrap .icon{
+	justify-self:end;
+}
+.gridwrap h1{
+	background-color:#ccafff;
+	border-radius:5%/40%;
+	padding-top:3vh;
+	padding-left:3vh;
+}
+
+
+.close{
+	line-height: 20vh;
+ 	padding-left:5vh;
+	font-size:5vh;
+}
+
+
+/*-----------------------------*/
+
+
+/*Icons*/
+.icon{
+	border-radius:100%/100%;
+	height:40vh;
+	width:40vh;
+	padding:1vh;
+	transform:scale(0.5);
+	margin-left:-3vh;
+	float:left;
+	background-repeat:no-repeat;
+	background-position:center;
+	align-self:end;
+}
+
+.hope{
+	background-image:url("./hopeicon.png");
+	background-color:#ffeff3;
+	background-size:80% 80%;
+}
+
+.alph{
+	background-image:url("./alphicon.png");
+	background-color:#ff93b0;
+	background-size:70% 70%;
+}
+
+.grid{
+	background-image:url("./logo.png");
+	background-color:#ff638c;
+	background-size:contain;
+	padding:0;
+}
+/*-------------------------------------*/
+
+
+
+

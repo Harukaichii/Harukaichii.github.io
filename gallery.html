@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gallery</title>
+	<link rel="stylesheet" type="text/css" href="./gallerycss.css">
+
+</head>
+<body>
+	<div class="wrapper">
+		<div class="header">
+			<h1>Gallery</h1>
+			<div class="circle bubble"></div>
+		</div>
+		<div class="main">
+			<nav>
+				<p class="active">Hair</p>
+				<p>Sketches</p>
+				<p>Misc</p>
+			</nav>
+
+			<div class="circlecontainer">
+				<div class="smallcircle hiddenL"></div>
+				<div id="cat1" onclick="flip(-1,'left')" class="smallcircle left"></div>
+				<div id="cat2" class="smallcircle mid"></div> 
+				<div id="cat3"onclick="flip(1,'right')" class="smallcircle right"></div>
+				<div class="smallcircle hiddenR"></div>
+
+			</div>
+			<div class="exit" style="position:absolute; top:-2vh; right:-2vh; background-color:purple;width:10vh; height:10vh; line-height:12vh;color:white; border-radius: 100%; text-align: center">X</div>
+
+
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="./gallery.js"></script>
+</body>
+</html>
+

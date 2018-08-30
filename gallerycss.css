@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script:700|Raleway');
+@import url('https://fonts.googleapis.com/css?family=Baumans');
+
+#gallery{
+	position:fixed;
+	top:0
+	left:0;
+	height:100%;
+	width:100%;
+ 	overflow-x: hidden;
+}
+
+
+#gallery .wrapper .header .circle{
+  --circle-color:pink;
+  --bottom: 0px;
+  --left: -10vh;
+  --height: 30vh;
+  --width: 30vh;
+  height:var(--height);
+  width:var(--width);
+  border-radius:100%/100%;
+  position:absolute;
+  bottom: var(--bottom);
+  left: var(--left);
+  background-color:var(--circle-color); 
+}
+
+#gallery .wrapper .header .bubble{
+	--circle-color:#a954ff;
+	--bottom:none;
+	top:-15vh;
+	height:40vh;
+	width:40vh;
+	z-index:1;
+	position:fixed;
+
+}
+
+
+.header h1{
+	font-size:15vh;
+	letter-spacing:1vh;
+	margin-left:10vh;
+	z-index:2;
+	transform:rotate(90deg);
+	transform-origin:top left 0;
+	float:left;
+	position:fixed;
+	left:10vh;
+}
+/*----------- not imported stuff here-----*/
+
+
+nav{
+	/*background-color:red;*/
+	width:90%;
+	align-self:center;
+	display:flex;
+	justify-content: space-around;
+}
+
+nav p{
+	font-size:8vh;
+	font-family:Dancing Script, 'cursive';
+	margin-top:1vh;
+	margin-bottom:2vh;
+	background-color:magenta;
+	border-radius:100%;
+	width:35vh;
+	text-align: center;
+	height:35vh;
+	line-height: 45vh;
+	margin-top:-17.5vh;
+	cursor:pointer;
+}
+
+nav p:hover{
+	background-color: rgba(255,0,255, 0.3);
+}
+.main{
+	height:100%;
+	width:100%;
+	margin-left:25vh;
+	display:flex;
+	align-items:center;
+	flex-direction: column;
+}
+
+
+.circlecontainer{
+	display:flex;
+	height:100%;
+	width:100%;
+	align-items:center;
+	justify-content: center;
+
+}
+
+.button{
+	cursor:pointer;
+	width:50px;
+	height:50px;
+	background-color:green;
+}
+
+.left{
+	order:1;
+}
+
+.circlecontainer{
+	order:2;
+	position:relative;
+	overflow:hidden;
+}
+
+.right{
+	order:3;
+}
+
+.smallcircle{
+	height:30vh;
+	width:30vh;
+	background-color:pink;
+	border-radius:100%;
+	margin:1vh;
+}
+
+
+.mid{
+	height:60vh;
+	width:60vh;
+	order:2;
+	background-color:pink;
+}
+
+.text{
+	text-align: center;
+}
+
+.circleExit{
+	position:absolute; 
+	top: -10vh;
+ 	right: -10vh;
+  	height: 20vh;
+  	width: 20vh;
+	background-color:purple;
+	line-height:12vh;
+	color:white; 
+	border-radius: 100%; 
+	cursor:pointer;
+}
+
+.closeG{
+	line-height: 20vh;
+ 	padding-left:5vh;
+ 	font-size: 5vh;
+}
+
+.active{
+	background-color: rgba(255,0,255, 0.3);
+}
+
+.animate{
+	animation: moveLeft 2s ease-in 0.2s;
+	animation-fill-mode:forwards;
+}
+
+.animate2{
+	animation:moveLeftBig 2s ease-in 0.2s;
+		animation-fill-mode:forwards;
+}
+
+.animate3{
+	animation:moveLeftSmall 1s ease-in 0.2s;
+		animation-fill-mode:forwards;
+}
+
+.animate4{
+	animation:moveLeftHidden 1s ease-out 1.53s;
+		animation-fill-mode:forwards;
+}
+
+.animateR{
+	animation: moveRight 2s ease-in 0.2s;
+	animation-fill-mode:forwards;
+}
+
+.animate2R{
+	animation:moveRightBig 2s ease-in 0.2s;
+		animation-fill-mode:forwards;
+}
+
+.animate3R{
+	animation:moveRightSmall 1s ease-in 0.2s;
+		animation-fill-mode:forwards;
+}
+
+.animate4R{
+	animation:moveRightHidden 1s ease-out 1.53s;
+		animation-fill-mode:forwards;
+}
+@keyframes moveLeft{
+	0%{transform:scale(1);}
+	50%{transform: translateX(-26vh) scale(0.5);}
+	100%{transform:translateX(-47vh) scale(0.5);}
+}
+
+@keyframes moveLeftBig{
+		0%{transform:scale(1);}
+		50%{transform:scale(2);}
+		100%{transform:translateX(-47.1vh) scale(2);}
+}
+
+@keyframes moveLeftSmall{
+		0%{opacity:1;}
+		100%{transform:translateX(-45vh);
+			opacity:0;
+		}
+}
+
+@keyframes moveLeftHidden{
+	0%{opacity:0;}
+	100%{opacity:1;
+		transform:translateX(-45vh);}
+}
+
+@keyframes moveRight{
+	0%{transform:scale(1);}
+	50%{transform: translateX(26vh) scale(0.5);}
+	100%{transform:translateX(47vh) scale(0.5);}
+}
+
+@keyframes moveRightBig{
+		0%{transform:scale(1);}
+		50%{transform:scale(2);}
+		100%{transform:translateX(47vh) scale(2);}
+}
+
+@keyframes moveRightSmall{
+		0%{opacity:1;}
+		100%{transform:translateX(45vh);
+			opacity:0;
+		}
+}
+
+@keyframes moveRightHidden{
+	0%{opacity:0;}
+	100%{opacity:1;
+		transform:translateX(45vh);}
+}
+
+.hide{
+	display:none;	
+}
+
+.hiddenR{
+	order:4;
+	display:none;
+	position:absolute;
+	margin:auto;
+	margin-left:92vh;
+	background-color:pink;
+}
+
+.hiddenL{
+	order:0;
+	display:none;
+	position:absolute;
+	margin:auto;
+	margin-left:-92vh;
+	background-color: pink;
+}
