@@ -1,6 +1,5 @@
 // make fadeout class an animation instead of transition. focus more on displaying text than fading
 $(document).ready(function(){
-	console.log(window.location.href);
 	$('.aboutme').click(function(event){
 			$('.aboutme h1').fadeOut();
 			$('.aboutme').addClass('aboutme-ani');
