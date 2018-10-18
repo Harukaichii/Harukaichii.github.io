@@ -1,35 +1,107 @@
-var picArray=['./cat1.jpg','./cat2.jpg','./cat3.jpg','./cat4.jpg', './cat5.jpg'];
-var hairlength=3;
+var picArray=[['pic1.jpg','pic2.jpg','pic3.jpg'],
+['pic1.jpg','pic2.jpg','pic3.jpg','pic4.jpg'],
+['pic1.jpg','pic2.jpg','pic3.jpg']];
+
+var text =["Collection of hair styles I've done on myself or on others.",
+"Simple drawings on good ol' MS paint.",
+"A record of everything else I do."];
+
+var dir = "Hair";
+// 0 -> Hair
+// 1 -> Sketches
+// 2 -> Misc
+
+var index=1, left=0, right =2;
+
+var navs = $('nav p');
+var selected=0;
+
+var clickDisabled =false; //prevents user from screwing things up >:c
+
+	function reset(){
+	
+	$('.circlecontainer>.mid').attr("src","gallery/"+dir+"/"+picArray[selected][index]);
+	$('.circlecontainer>.left').attr("src","gallery/"+dir+"/"+picArray[selected][left]);
+	$('.circlecontainer>.right').attr("src","gallery/"+dir+"/"+picArray[selected][right]);
+	
+}
 
 
-var index=1;
+
+
+for(let i =0; i<navs.length; i++){
+	navs[i].addEventListener("click",function(){	
+		$('.active').removeClass('active');
+		$('.circlecontainer').addClass('moveOn');
+		$('.description').addClass('moveOn');
+
+		setTimeout(function(){
+			reset();
+			$('.description').text(text[i]);
+				
+		},1000);
+
+		let el = $('.circlecontainer');
+		el.before(el.clone(true)).remove();
+
+		let el2 = $('.description');
+		el2.before(el2.clone(true)).remove();
+
+		navs[i].classList.add('active');
+		selected=i;
+		left=0;
+		index=1;
+		right=2;
+		dir=navs[i].textContent;
+
+
+	});
+}
+$(document).ready(function(){
+	$('.closeG').click(function(){
+		$('#gallery').fadeOut('slow');
+		$('#home').fadeIn('slow');
+
+		
+	});
+	reset();
+	
+
+
+});
+
+
 
 function flip(ind, dir){
 	index+=ind;
 	if(index< 0)
-	index=picArray.length-1;
-	if(index>=picArray.length){
+	index=picArray[selected].length-1;
+	if(index>=picArray[selected].length){
 		index=0;
 	}
 
-	let left= index-1;
-	let right= index+1;
+	left= index-1;
+	right= index+1;
 
-	if(right === picArray.length)
+	if(right === picArray[selected].length)
 		right=0;
 
 	if(left < 0)
-		left= picArray.length-1;
+		left= picArray[selected].length-1;
 
 	if(dir==='left'){
-		moveLeft(left, index, right);
+		moveLeft();
 	}
 	else{
-		moveRight(left, index, right);
+		moveRight();
 	}
+	console.log("value of index" + index);
 
 }
-function moveLeft(left, ind, right){
+function moveLeft(){
+
+	if(clickDisabled)
+		return;
 	$('.right').addClass('animate3R');
 	$('.mid').addClass('animateR');
 	$('.left').addClass('animate2R');
@@ -37,11 +109,8 @@ function moveLeft(left, ind, right){
 	$('.hiddenL').addClass('animate4R');
 
 
-	$('.hiddenL').css({"background-image":"url("+picArray[left]+")", 
-					"background-size":"70% 70%",
-					"background-repeat":"no-repeat",
-					"background-position":"center"});
-
+	$('.hiddenL').attr("src","gallery/"+dir+"/"+picArray[selected][left]);
+	clickDisabled = true;
 		setTimeout(function(){
 
 				$('.hiddenL').css("display","none");
@@ -57,20 +126,12 @@ function moveLeft(left, ind, right){
 				$('.left.right').removeClass('left animate2R');
 
 				$('.mid.right').removeClass('right animate3R');
-				$('.left').css({"background-image":"url("+picArray[left]+")", 
-							"background-size":"70% 70%",
-							"background-repeat":"no-repeat",
-							"background-position":"center"});
-				$('.mid').css({"background-image":"url("+picArray[ind]+")", 
-									"background-size":"70% 70%",
-									"background-repeat":"no-repeat",
-									"background-position":"center"});
-				$('.right').css({"background-image":"url("+picArray[right]+")", 
-									"background-size":"70% 70%",
-									"background-repeat":"no-repeat",
-									"background-position":"center"});
+				$('.circlecontainer>.left').attr("src","gallery/"+dir+"/"+picArray[selected][left]);
+				$('.circlecontainer>.mid').attr("src","gallery/"+dir+"/"+picArray[selected][index]);
+				$('.circlecontainer>.right').attr("src","gallery/"+dir+"/"+picArray[selected][right]);
 				$('.right').attr("onClick","flip(1, 'right')");
 				$('.left').attr("onClick","flip(-1,'left')");
+				clickDisabled = false;
 	
 
 
@@ -78,8 +139,9 @@ function moveLeft(left, ind, right){
 
 }
 
-function moveRight(left, ind, right){
-	
+function moveRight(){
+	if(clickDisabled)
+		return;
 	$('.mid').addClass('animate');
 	$('.left').addClass('animate3');
 	$('.right').addClass('animate2');
@@ -87,10 +149,7 @@ function moveRight(left, ind, right){
 	$('.hiddenR').addClass('animate4');
 	
 
-	$('.hiddenR').css({"background-image":"url("+picArray[right]+")", 
-				"background-size":"70% 70%",
-				"background-repeat":"no-repeat",
-				"background-position":"center"});
+	$('.hiddenR').attr("src","gallery/"+dir+"/"+picArray[selected][right]);
 	setTimeout(function(){
 			$('.hiddenR').css("display","none");
 			$('.hiddenR').removeClass('animate4');
@@ -105,18 +164,10 @@ function moveRight(left, ind, right){
 			$('.left.right').removeClass('left animate3');
 
 			$('.mid.right').removeClass('right animate2');
-			$('.left').css({"background-image":"url("+picArray[left]+")", 
-						"background-size":"70% 70%",
-						"background-repeat":"no-repeat",
-						"background-position":"center"});
-			$('.mid').css({"background-image":"url("+picArray[ind]+")", 
-								"background-size":"70% 70%",
-								"background-repeat":"no-repeat",
-								"background-position":"center"});
-			$('.right').css({"background-image":"url("+picArray[right]+")", 
-								"background-size":"70% 70%",
-								"background-repeat":"no-repeat",
-								"background-position":"center"});
+			$('.circlecontainer>.left').attr("src","gallery/"+dir+"/"+picArray[selected][left]);
+			$('.circlecontainer>.mid').attr("src","gallery/"+dir+"/"+picArray[selected][index]);
+			$('.circlecontainer>.right').attr("src","gallery/"+dir+"/"+picArray[selected][right]);
+			console.log(index);
 			$('.right').attr("onClick","flip(1, 'right')");
 			$('.left').attr("onClick","flip(-1,'left')");
 
@@ -126,40 +177,6 @@ function moveRight(left, ind, right){
 
 
 }
-$('#cat1').css({"background-image":"url("+$('#cat1').attr('id')+".jpg)", 
-					"background-size":"70% 70%",
-					"background-repeat":"no-repeat",
-					"background-position":"center"});
-$('#cat2').css({"background-image":"url("+$('#cat2').attr('id')+".jpg)", 
-					"background-size":"70% 70%",
-					"background-repeat":"no-repeat",
-					"background-position":"center"});
-$('#cat3').css({"background-image":"url("+$('#cat3').attr('id')+".jpg)", 
-					"background-size":"70% 70%",
-					"background-repeat":"no-repeat",
-					"background-position":"center"});
 
 
 
-
-var navs = $('nav p');
-var selected="Hair";
-for(let i =0; i<navs.length; i++){
-	navs[i].addEventListener("click",function(){
-		$('.active').removeClass('active');
-		navs[i].classList.add('active');
-		selected=navs[i].textContent;
-		console.log(selected);
-	});
-}
-$(document).ready(function(){
-	$('.closeG').click(function(){
-		$('#gallery').fadeOut('slow');
-		$('#home').fadeIn('slow');
-
-		
-	});
-	
-
-
-});

@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Baumans');
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 
+
 *{
   box-sizing: border-box;
 }
@@ -27,299 +28,642 @@ p{
 }
 
 
+@media only screen and (min-width: 600px) and (max-width:1099px){
+  .banner{
+    height:90vh;
+    width:100%;
+    background-image: url("scene.png");
+    background-attachment: fixed;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size:cover;
+  }
 
-.banner{
-  height:90vh;
-  width:100%;
-  background-image: url("scene.png");
-  background-attachment: fixed;
-  background-position:center;
-  background-repeat: no-repeat;
-  background-size:cover;
-}
+  .container{
+    display:flex;
+    height:10vh;
+    margin-top:-10vh;
+      background-color:transparent;
+      
+  }
 
-.container{
-  display:flex;
-  margin-top:-10vh;
-  height:10vh;
+
+  .line{
+    flex-basis:2;
+    width:70%;
+    height:100%;
+    background-color:#f8ad95;
+      border-radius: 0 50% 50% 0/ 0 10% 10% 0;
+      text-align: center;
+      font-size: 10vh;
+      color:white;
+      font-family: 'Dancing Script', cursive;
+      z-index:3;
+      line-height:1em;
+
+  }
+
+  .right{
+    border-radius:  50% 0 0 50%/ 10% 0 0 10%;
+  }
+
+  .bow{
+    display:inline-block;
+    position:absolute;
+    z-index: 4;
+    height:15vh;
+    width:32vh;
+    left:50%;
+    margin-left:-16vh;
+  }
+
+  .thing{
+    flex-basis:1;
+    flex-shrink: 0;
+    width:105px;
     background-color:transparent;
-}
+  }
+
+  #home{
+    overflow-y: hidden;
+  }
+
+  .info{
+    font-size:1.2vh;
+    line-height:2vh;
+    padding-top:8%;
+    padding-right:10%;
+    padding-left:10%;
+  }
 
 
-.line{
-  flex-basis:2;
-  width:70%;
-  height:100%;
-  background-color:#f8ad95;
-    border-radius: 0 50% 50% 0/ 0 10% 10% 0;
+
+  /* controls all the circles on the page*/
+  .circle{
+    --circle-color:pink;
+    --bottom: 0px;
+    --left: 70px;
+    --height: 25vh;
+    --width: 25vh;
+    height:var(--height);
+    width:var(--width);
+    border-radius:100%/100%;
+    position:absolute;
+    bottom: var(--bottom);
+    left: var(--left);
+    background-color:var(--circle-color); 
+  }
+
+  .circleleft{
+    --circle-color:pink;
+    --top: -30px;
+    --right: 0;
+    --height: 35vh;
+    --width: 35vh;
+    height:var(--height);
+    width:var(--width);
+    top: var(--top);
+    right: var(--right);
+    background-color:var(--circle-color);
+    border-radius:100%/100%;
+    position:absolute;
+    z-index:1;
+    cursor: pointer;
+  }
+
+  .contactme{
+    --height:45vh;
+    --width:45vh;
+    --circle-color:#f4b1a3;
+    --left:none;
+    --bottom: -25vh;
+    right:-13vh;
+    text-align:center;
+    word-wrap: break-word;
+    z-index:6;
+    cursor: pointer;
+  }
+
+  .contactme h1{
+    display:inline-block;
+    width:50%;
+    margin-top:7vh;
+    margin-left:-7vh;
+  }
+
+  .projects{
     text-align: center;
-    font-size: 10vh;
-    color:white;
-    font-family: 'Dancing Script', cursive;
-    z-index:3;
-    line-height:1em;
+    line-height: 30vh;
+    --circle-color:#ccafff;
+  }
+
+
+  .gallery{
+    text-align: center;
+    line-height: 13vh;
+    --height:20vh;
+    --width:20vh;
+    --top:20vh;
+    --right:15vh;
+
+  }
+
+
+
+  .aboutme{
+    cursor:pointer;
+    text-align:center;
+    line-height:17vh;
+    --bottom: 5vh;
+    --circle-color:#b886bb;
+    z-index:5;
+    transform-origin:bottom left;
+  }
+
+
+  .empty{
+     --circle-color:transparent;
+     border: 3px solid pink;
+     --bottom:50vh;
+     --left:-14vh;
+     --height:38vh;
+     --width:38vh;
+  }
+
+  .leftupsmall{
+    --bottom:70vh;
+    --left:18vh;
+    --height:14vh;
+    --width:14vh;
+    --circle-color:#ef69a7;
+  }
+
+
+  /*center circle*/
+  .centerCircle{
+    height:80vh;
+    width:80vh;
+    font-size:1.6em;
+    background:no-repeat center/100% url('https://res.cloudinary.com/ddiv3an4h/image/upload/v1535775134/backcircle.png');  
+    margin-top:10vh;
+
+  }
+
+
+
+  /*------------------------*/
+
+  /* --------------------- layout control on home page------------------*/
+  #home{
+    overflow: hidden;
+  }
+
+  .card{   
+    position:relative;
+    display:flex;
+    flex-flow: row wrap;
+    height:100vh;
+    margin-top:-1vh;
+    align-items: stretch;
+
+  }
+
+  .card > *{
+     flex:1;  
+  /*   color:red;*/
+  /*   border:2px solid white;*/
+   position:relative;
+  }
+
+  .card div h1{
+    font-size:5vh;
+  }
+
+  .left-box{
+    flex-basis:auto;
+    order:1;
+  }
+
+  .structure{
+    flex-grow:3;
+    order:2;
+    text-align:center;
+    display:flex;
+    justify-content: center;
+
+   
+  }
+
+    .structure div p {
+    display:inline-block;
+    padding-top: 20vh;
+    padding-left:5vh;
+    padding-right:5vh;
+    padding-bottom:1vh;
+    font-size: 5vh;
+    font-family: Indie Flower, 'cursive';
+  }
+
+  .left-box img{
+    transform-style: preserve-3d;
+    transform:scale(0.3); 
+    position:absolute; 
+    z-index:8;
+    height:70vh;
+    width:65vh;
+  /*  top:-28%;
+    top:-25vh;*/
+    transform-origin:center bottom;
+  }
+
+
+  /*#title{
+    margin-left:-120px;
+    margin-top:30vh;
+    font-size:10vh;
+    z-index:2;
+  }
+  */
+
+  .right-box{
+    flex-basis: auto;
+    order:3;
+   
+  }
+
+  .footer{
+    flex-basis:100%;
+    order:4;
+    height:10%;
+
+  }
+
+  .footerafter{
+    width:110%;
+    top:13%;
+    padding-right:10%;
+    padding-left:10%;
+    border-radius:0%;
+    cursor: auto;
+  }
+
+
+  /* --------------------------------------------------------------------*/
+
+  /*-----------------------------------*/
+
+  .hidden{
+    display:none;
+  }
+
+  .fadeOut{
+      opacity:0;
+  }
+  /* ----------------------------------- */
+
+
+
+  .circle-ani{
+    animation:enlarge 2s linear 0s;
+  }
+
+  .aboutme-ani{
+      animation: aboutme 1s ease-in 0.5s forwards ;
+  }
+
+  .flip-in{
+      animation:flip 0.6s ease-in 0s forwards;
+  }
+
+  .contactme-ani{
+    animation:spread 1s ease-in-out 0.2s forwards;
+  }
 
 }
 
-.right{
-  border-radius:  50% 0 0 50%/ 10% 0 0 10%;
+
+
+@media only screen and (min-width: 1100px) {
+    .banner{
+    height:90vh;
+    width:100%;
+    background-image: url("scene.png");
+    background-attachment: fixed;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size:cover;
+  }
+
+  .container{
+    display:flex;
+    margin-top:-10vh;
+    height:10vh;
+      background-color:transparent;
+  }
+
+
+  .line{
+    flex-basis:2;
+    width:70%;
+    height:100%;
+    background-color:#f8ad95;
+      border-radius: 0 50% 50% 0/ 0 10% 10% 0;
+      text-align: center;
+      font-size: 10vh;
+      color:white;
+      font-family: 'Dancing Script', cursive;
+      z-index:3;
+      line-height:1em;
+
+  }
+
+  .right{
+    border-radius:  50% 0 0 50%/ 10% 0 0 10%;
+  }
+
+  .bow{
+    display:inline-block;
+    position:absolute;
+    z-index: 4;
+    height:15vh;
+    width:32vh;
+    left:50%;
+    margin-left:-16vh;
+  }
+
+  .thing{
+    flex-basis:1;
+    flex-shrink: 0;
+    width:105px;
+    background-color:transparent;
+  }
+
+  #home{
+    overflow-y: hidden;
+  }
+
+  .info{
+    font-size:1.2vh;
+    line-height:2vh;
+    padding-top:8%;
+    padding-right:10%;
+    padding-left:10%;
+  }
+
+
+
+  /* controls all the circles on the page*/
+  .circle{
+    --circle-color:pink;
+    --bottom: 0px;
+    --left: 70px;
+    --height: 30vh;
+    --width: 30vh;
+    height:var(--height);
+    width:var(--width);
+    border-radius:100%/100%;
+    position:absolute;
+    bottom: var(--bottom);
+    left: var(--left);
+    background-color:var(--circle-color); 
+  }
+
+  .circleleft{
+    --circle-color:pink;
+    --top: -30px;
+    --right: 0;
+    --height: 50vh;
+    --width: 50vh;
+    height:var(--height);
+    width:var(--width);
+    top: var(--top);
+    right: var(--right);
+    background-color:var(--circle-color);
+    border-radius:100%/100%;
+    position:absolute;
+    z-index:1;
+    cursor: pointer;
+  }
+
+  .contactme{
+    --height:45vh;
+    --width:45vh;
+    --circle-color:#f4b1a3;
+    --left:none;
+    --bottom: -25vh;
+    right:-13vh;
+    text-align:center;
+    word-wrap: break-word;
+    z-index:6;
+    cursor: pointer;
+  }
+
+  .contactme h1{
+    display:inline-block;
+    width:50%;
+    margin-top:7vh;
+    margin-left:-7vh;
+  }
+
+  .projects{
+    text-align: center;
+    line-height: 45vh;
+    --circle-color:#ccafff;
+  }
+
+
+  .gallery{
+    text-align: center;
+    line-height: 23vh;
+    --height:30vh;
+    --width:30vh;
+    --top:30vh;
+    --right:25vh;
+
+  }
+
+
+
+  .aboutme{
+    cursor:pointer;
+    text-align:center;
+    line-height:22vh;
+    --bottom: 5vh;
+    --circle-color:#b886bb;
+    z-index:5;
+    transform-origin:bottom left;
+  }
+
+
+  .empty{
+     --circle-color:transparent;
+     border: 3px solid pink;
+     --bottom:50vh;
+     --left:-14vh;
+     --height:38vh;
+     --width:38vh;
+  }
+
+  .leftupsmall{
+    --bottom:70vh;
+    --left:18vh;
+    --height:14vh;
+    --width:14vh;
+    --circle-color:#ef69a7;
+  }
+
+
+  /*center circle*/
+  .centerCircle{
+    height:80vh;
+    width:80vh;
+    border-radius:100%;
+    font-size:1.6em;
+    background:no-repeat center/100% url('https://res.cloudinary.com/ddiv3an4h/image/upload/v1535775134/backcircle.png');  
+    margin-top:10vh;
+
+  }
+
+
+
+  /*------------------------*/
+
+  /* --------------------- layout control on home page------------------*/
+  #home{
+    overflow: hidden;
+  }
+
+  .card{
+    background-color: white;    
+    position:relative;
+    display:flex;
+    flex-flow: row wrap;
+    height:100vh;
+    margin-top:-1vh;
+    align-items: stretch;
+
+  }
+
+  .card > *{
+     flex:1;  
+  /*   color:red;*/
+  /*   border:2px solid white;*/
+   position:relative;
+  }
+
+  .card div h1{
+    font-size:5vh;
+  }
+
+  .left-box{
+    flex-basis:auto;
+    order:1;
+  }
+
+  .structure{
+    flex-grow:3;
+    order:2;
+    text-align:center;
+    display:flex;
+    justify-content: center;
+
+   
+  }
+
+  .structure div p {
+    display:inline-block;
+    padding-top: 20vh;
+    padding-left:5vh;
+    padding-right:5vh;
+    padding-bottom:1vh;
+    font-size: 5vh;
+    font-family: Indie Flower, 'cursive';
+  }
+
+  .left-box img{
+    transform-style: preserve-3d;
+    transform:scale(0.3); 
+    position:absolute; 
+    z-index:8;
+    height:70vh;
+    width:65vh;
+  /*  top:-28%;
+    top:-25vh;*/
+    transform-origin:center bottom;
+  }
+
+
+  /*#title{
+    margin-left:-120px;
+    margin-top:30vh;
+    font-size:10vh;
+    z-index:2;
+  }
+  */
+
+  .right-box{
+    flex-basis: auto;
+    order:3;
+   
+  }
+
+  .footer{
+    flex-basis:100%;
+    order:4;
+    height:10%;
+
+  }
+
+  .footerafter{
+    width:110%;
+    top:13%;
+    padding-right:10%;
+    padding-left:10%;
+    border-radius:0%;
+    cursor: auto;
+  }
+
+
+  /* --------------------------------------------------------------------*/
+
+  /*-----------------------------------*/
+
+  .hidden{
+    display:none;
+  }
+
+  .fadeOut{
+      opacity:0;
+  }
+  /* ----------------------------------- */
+
+
+
+  .circle-ani{
+    animation:enlarge 2s linear 0s;
+  }
+
+  .aboutme-ani{
+      animation: aboutme 1s ease-in 0.5s forwards ;
+  }
+
+  .flip-in{
+      animation:flip 0.6s ease-in 0s forwards;
+  }
+
+  .contactme-ani{
+    animation:spread 1s ease-in-out 0.2s forwards;
+  }
+
+
 }
 
-.bow{
-  display:inline-block;
-  position:absolute;
-  z-index: 4;
-  height:15vh;
-  width:32vh;
-  left:50%;
-  margin-left:-16vh;
-}
-
-.thing{
-  flex-basis:1;
-  flex-shrink: 0;
-  width:105px;
-  background-color:transparent;
-}
-
-#home{
-  overflow-y: hidden;
-}
-
-.info{
-  font-size:1.2vh;
-  line-height:2vh;
-  padding-top:8%;
-  padding-right:10%;
-  padding-left:10%;
-}
 
 
 
-/* controls all the circles on the page*/
-.circle{
-  --circle-color:pink;
-  --bottom: 0px;
-  --left: 70px;
-  --height: 30vh;
-  --width: 30vh;
-  height:var(--height);
-  width:var(--width);
-  border-radius:100%/100%;
-  position:absolute;
-  bottom: var(--bottom);
-  left: var(--left);
-  background-color:var(--circle-color); 
-}
-
-.circleleft{
-  --circle-color:pink;
-  --top: -30px;
-  --right: 0;
-  --height: 50vh;
-  --width: 50vh;
-  height:var(--height);
-  width:var(--width);
-  top: var(--top);
-  right: var(--right);
-  background-color:var(--circle-color);
-  border-radius:100%/100%;
-  position:absolute;
-  z-index:1;
-  cursor: pointer;
-}
-
-.contactme{
-  --height:45vh;
-  --width:45vh;
-  --circle-color:#f4b1a3;
-  --left:none;
-  --bottom: -25vh;
-  right:-13vh;
-  text-align:center;
-  word-wrap: break-word;
-}
-
-.contactme h1{
-  display:inline-block;
-  width:50%;
-  margin-top:7vh;
-  margin-left:-7vh;
-}
-
-.projects{
-  text-align: center;
-  line-height: 45vh;
-  --circle-color:#f1bccd;
-}
-
-
-.gallery{
-  text-align: center;
-  line-height: 23vh;
-  --height:30vh;
-  --width:30vh;
-  --top:20vh;
-  --right:30vh;
-
-}
 
 
 
-.aboutme{
-  cursor:pointer;
-  text-align:center;
-  line-height:22vh;
-  --bottom: 5vh;
-  --circle-color:#b886bb;
-  z-index:5;
-  transform-origin:bottom left;
-}
-
-
-.empty{
-   --circle-color:transparent;
-   border: 3px solid pink;
-   --bottom:50vh;
-   --left:-14vh;
-   --height:38vh;
-   --width:38vh;
-}
-
-.leftupsmall{
-  --bottom:70vh;
-  --left:18vh;
-  --height:14vh;
-  --width:14vh;
-  --circle-color:#ef69a7;
-}
-
-
-/*center circle*/
-.centerCircle{
-  height:80vh;
-  width:80vh;
-  border-radius:100%;
-  font-size:1.6em;
-  background:no-repeat center/100% url('backcircle.png');  
-  margin-top:10vh;
-
-}
-
-
-
-/*------------------------*/
-
-/* --------------------- layout control on home page------------------*/
-#home{
-  overflow: hidden;
-}
-
-.card{
-  background-color: white;    
-  position:relative;
-  display:flex;
-  flex-flow: row wrap;
-  height:100vh;
-  margin-top:-1vh;
-  align-items: stretch;
-
-}
-
-.card > *{
-   flex:1;  
-/*   color:red;*/
-/*   border:2px solid white;*/
- position:relative;
-}
-
-.card div h1{
-  font-size:5vh;
-}
-
-.left-box{
-  flex-basis:auto;
-  order:1;
-}
-
-.structure{
-  flex-grow:3;
-  order:2;
-  text-align:center;
-  display:flex;
-  justify-content: center;
-
- 
-}
-
-.structure div p {
-  display:inline-block;
-  padding-top: 20vh;
-  padding-left:5vh;
-  padding-right:5vh;
-  padding-bottom:1vh;
-  font-size: 5vh;
-  font-family: Indie Flower, 'cursive';
-}
-
-.left-box img{
-  transform-style: preserve-3d;
-  transform:scale(0.3); 
-  position:absolute; 
-  z-index:8;
-  height:70vh;
-  width:65vh;
-  top:-28%;
-  top:-25vh;
-  transform-origin:center bottom;
-}
-
-
-/*#title{
-  margin-left:-120px;
-  margin-top:30vh;
-  font-size:10vh;
-  z-index:2;
-}
-*/
-
-.right-box{
-  flex-basis: auto;
-  order:3;
- 
-}
-
-.footer{
-  flex-basis:100%;
-  order:4;
-  height:10%;
-}
-/* --------------------------------------------------------------------*/
-
-/*-----------------------------------*/
-
-.hidden{
-  display:none;
-}
-
-.fadeOut{
-    opacity:0;
-}
-/* ----------------------------------- */
-
-
-
-.circle-ani{
-  animation:enlarge 2s linear 0s;
-}
-
-.aboutme-ani{
-    animation: aboutme 1.5s ease-in 0.5s forwards ;
-}
-
-.flip-in{
-    animation:flip 0.6s ease-in 0s forwards;
-}
 
 @keyframes enlarge{
   0%{
@@ -366,5 +710,13 @@ p{
   100%{
     transform:rotateX(0deg) scale(0.3);
     opacity:1;
+  }
+}
+
+@keyframes spread{
+  0%{
+    transform: scaleX(0.5);
+  }100%{
+    transform:scaleX(70) translateY(25%);
   }
 }

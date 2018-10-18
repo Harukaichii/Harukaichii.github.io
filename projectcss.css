@@ -75,7 +75,7 @@ h1 p{
 }
 
 
-.header h1{
+#projects .header h1{
 	font-size:15vh;
 	letter-spacing:1vh;
 	margin-left:10vh;
